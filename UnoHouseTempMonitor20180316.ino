@@ -1125,7 +1125,11 @@ int getNTPtime() {
     while (!UdpNTP.parsePacket()) { // wait for the UPD reply to be there
   //  Serial.print(".");
     delay(10);
+    if ((millis() - timestampUDP) > 2000) { // give up waiting for a reply if it's been longer than two seconds
+      return 0;
     }
+    } // got a reply so process it
+    
     timestampUDP = millis() - timestampUDP; // round trip time
 
     // We've received a packet, read the data from it
@@ -1170,4 +1174,5 @@ int getNTPtime() {
   
   Ethernet.maintain();
   return timestampUDP;
+  
 } // getNTPtime()
