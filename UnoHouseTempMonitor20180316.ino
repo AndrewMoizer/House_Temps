@@ -1,6 +1,7 @@
 /* Reference: http://arduino.cc/en/Tutorial/WebClientRepeating  */
 /* Should be a signifiant re-write*/
 
+// Update 20180418: Start changes to test out thingspeak
 // Updates 20180314: try to sync update times within the second, and adjust the times to the RTC. Will sync the RTC more than at startup too later
 //
 // Updates 20170916
